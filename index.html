@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+        <style>
+            .header{
+            margin-top: 0px;
+            width: 100vw;
+            height: 50px;
+            background-color: lightslategrey;
+            overflow: hidden;
+            border-bottom: 1px  solid rgba(167, 167, 167, 0.993);
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+        .logo{
+            background-color: lightslategray;
+            overflow: hidden;
+            width: fit-content;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        .logo-text{
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 26px;
+            margin-top: 10px;
+        }
+        .logo:hover{
+            background-color: whitesmoke;
+            .logo-text{
+            color: black;
+            }
+        }
+        .calculator {
+      width: 252px;
+      height: 315px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 0 auto;
+      margin-top: 5vw ;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        
+    }
+    .calculator input[type="button"] {
+      width: 50px;
+      height: 50px;
+      padding: 10px;
+      margin: 5px;
+    }
+    .display  {
+      width:94%;
+      margin-left: 2%;
+    }
+        </style>
+</head>
+<body style="margin: 0;overflow-x: hidden;">
+    <div class="header">
+        <div class="logo">
+            <p class="logo-text">CALCULATOR</p>
+        </div>
+    </div>
+
+
+    <div class="calculator">
+        <!-- Calculator display -->
+        <input type="text"  class="display" id="display" >
+        
+        <!-- Calculator buttons -->
+        <br><input type="button" value="7" onclick="addToDisplay('7')">
+        <input type="button" value="8" onclick="addToDisplay('8')">
+        <input type="button" value="9" onclick="addToDisplay('9')">
+        <input type="button" value="/" onclick="addToDisplay('/')"><br>
+        
+        <input type="button" value="4" onclick="addToDisplay('4')">
+        <input type="button" value="5" onclick="addToDisplay('5')">
+        <input type="button" value="6" onclick="addToDisplay('6')">
+        <input type="button" value="*" onclick="addToDisplay('*')"><br>
+        
+        <input type="button" value="1" onclick="addToDisplay('1')">
+        <input type="button" value="2" onclick="addToDisplay('2')">
+        <input type="button" value="3" onclick="addToDisplay('3')">
+        <input type="button" value="-" onclick="addToDisplay('-')"><br>
+        
+        <input type="button" value="0" onclick="addToDisplay('0')">
+        <input type="button" value="." onclick="addToDisplay('.')">
+        <input type="button" value="=" onclick="calculate()">
+        <input type="button" value="+" onclick="addToDisplay('+')"><br>
+        
+        <input type="button" value="C" onclick="clearDisplay()">
+      </div>
+      
+      <script>
+        // JavaScript functions for calculator functionality
+        function addToDisplay(value) {
+          document.getElementById('display').value += value;
+        }
+      
+        function calculate() {
+          try {
+            let result = eval(document.getElementById('display').value);
+            document.getElementById('display').value = result;
+          } catch(error) {
+            document.getElementById('display').value = 'Error';
+          }
+        }
+      
+        function clearDisplay() {
+          document.getElementById('display').value = '';
+        }
+      </script>
+</body>
+</html>
